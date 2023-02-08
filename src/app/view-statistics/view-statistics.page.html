@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="buttons-container">
+    <button class="first-button" [class.first-button-selected]="firstButtonSelected" (click)="firstButtonAction()">
+      Filter by year
+    </button>
+    <button class="second-button" [class.second-button-selected]="secondButtonSelected" (click)="secondButtonAction()">
+      Top 3 genres
+    </button>
+  </div>
+
+  <ion-list *ngIf="firstButtonSelected">
+    <ion-item *ngFor="let elem of filterByYearElems">
+      <ion-label class="ion-text-wrap">
+        <h2>
+          {{"Year: " + elem.year + " Movies: " + elem.count }}
+        </h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="secondButtonSelected">
+    <ion-item *ngFor="let elem of topThreeByGenre">
+      <ion-label class="ion-text-wrap">
+        <h2>
+          {{"Genre: " + elem.genre + " Movies: " + elem.count }}
+        </h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

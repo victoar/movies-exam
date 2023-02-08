@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 class="title-style">Please fill in the fields below</h2>
+
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input placeholder="Enter text" [(ngModel)]="name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input placeholder="Enter text" [(ngModel)]="description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Genre</ion-label>
+    <ion-input placeholder="Enter text" [(ngModel)]="genre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Director</ion-label>
+    <ion-input placeholder="Enter text" [(ngModel)]="director"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Year</ion-label>
+    <ion-input placeholder="Enter text" [(ngModel)]="year"></ion-input>
+  </ion-item>
+
+  <ion-button color="warning" expand="block" class="save-button-style" (click)="onSaveButtonPressed()">
+    Save
+  </ion-button>
+
+  <p *ngIf="invalidDataError" class="error-text">Please fill all the fields!</p>
+</ion-content>
